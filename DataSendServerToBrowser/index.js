@@ -13,7 +13,7 @@ io.on( "connection", function (socket) {
     console.log("New User Connected")
 
     //Received Data From Client
-    socket.on("message", function (name) {
+    socket.on("myData", function (name) {
         console.log(name);
     })
 

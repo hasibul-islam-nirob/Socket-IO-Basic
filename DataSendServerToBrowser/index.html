@@ -8,7 +8,6 @@
 
 <div>
     <input id="myNameID" type="text" placeholder="Your Name"><br>
-    <input id="myPassID" type="text" placeholder="Password"><br>
     <button onclick="sendData()" >Submit</button>
 </div>
 
@@ -21,7 +20,7 @@
 
         function sendData(){
             let name = document.getElementById("myNameID").value;
-            socket.send(name);
+            socket.emit("myData",name);
         }
     </script>
 
