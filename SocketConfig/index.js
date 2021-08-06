@@ -6,7 +6,17 @@ const expressJsServer = http.createServer(app);
 
 // Socket IO Configuration
 const {Server} =require('socket.io');
-const ioServer = new Server(expressJsServer);
+const io = new Server(expressJsServer);
+
+//Check Connection
+io.on( "connection", function (socket) {
+    console.log("New User Connected")
+
+    socket.on("disconnect", function (){
+        console.log("User Disconnected")
+    })
+})
+
 
 app.get('/', function (request, response){
     response.sendFile(__dirname+"/index.html");
