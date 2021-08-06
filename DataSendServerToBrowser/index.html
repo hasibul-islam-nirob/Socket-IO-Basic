@@ -12,9 +12,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
-        socket.on('message',function (msg) {
-            document.getElementById("myID").innerHTML = "";
-            document.getElementById("myID").innerHTML = msg;
+        socket.on('myData',function (msg) {
+            document.getElementById("myID").innerHTML=msg;
         })
     </script>
 
