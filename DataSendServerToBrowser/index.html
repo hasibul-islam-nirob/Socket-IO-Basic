@@ -6,14 +6,15 @@
 </head>
 <body>
 
-    <h1>Hello Programmer</h1>
+    <h1 id="myID"></h1>
 
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
         socket.on('message',function (msg) {
-            document.write(msg);
+            document.getElementById("myID").innerHTML = "";
+            document.getElementById("myID").innerHTML = msg;
         })
     </script>
 
