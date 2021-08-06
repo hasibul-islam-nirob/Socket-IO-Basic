@@ -6,15 +6,23 @@
 </head>
 <body>
 
-    <h1 id="myID"></h1>
+<div>
+    <input id="myNameID" type="text" placeholder="Your Name"><br>
+    <input id="myPassID" type="text" placeholder="Password"><br>
+    <button onclick="sendData()" >Submit</button>
+</div>
+
 
 
     <script src="/socket.io/socket.io.js"></script>
+
     <script>
         let socket = io();
-        socket.on('myData',function (msg) {
-            document.getElementById("myID").innerHTML=msg;
-        })
+
+        function sendData(){
+            let name = document.getElementById("myNameID").value;
+            socket.send(name);
+        }
     </script>
 
 </body>

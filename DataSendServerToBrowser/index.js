@@ -12,13 +12,12 @@ const io = new Server(expressJsServer);
 io.on( "connection", function (socket) {
     console.log("New User Connected")
 
-    //Custom Event
-    setInterval(function (){
-        let date = new Date();
-        let time = date.getTime();
-        socket.emit("myData",time);
-    },10)
+    //Received Data From Client
+    socket.on("message", function (name) {
+        console.log(name);
+    })
 
+    //Check Disconnection
     socket.on("disconnect", function (){
         console.log("User Disconnected")
     })
