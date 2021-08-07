@@ -12,6 +12,9 @@ const io = new Server(expressJsServer);
 io.on( "connection", function (socket) {
     console.log("New User Connected")
 
+
+
+
     socket.on("disconnect", function (){
         console.log("User Disconnected")
     })
