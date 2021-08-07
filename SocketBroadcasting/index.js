@@ -12,6 +12,10 @@ const io = new Server(expressJsServer);
 io.on( "connection", function (socket) {
     console.log("New User Connected")
 
+    //Broadcasting
+    io.sockets.emit("myBroadcast","Broadcasting is for everybody");
+
+
     socket.on("disconnect", function (){
         console.log("User Disconnected")
     })
