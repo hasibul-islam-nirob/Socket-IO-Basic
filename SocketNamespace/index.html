@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Socket IO Front View </title>
+</head>
+<body>
+
+    <h1 id="myID">Hello Programmer</h1>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        /*
+        // For Group One
+        let socket = io("/groupOne");
+        socket.on("group1",function (msg) {
+            document.getElementById("myID").innerHTML = msg;
+        })
+         */
+
+        // For Group Two
+        let socket = io("/groupTwo");
+        socket.on("group2",function (msg) {
+            document.getElementById("myID").innerHTML = msg;
+        })
+
+
+    </script>
+
+</body>
+</html>
