@@ -63,7 +63,7 @@
                         <div class="chatBox col-md-12 col-sm-12">
                             <div class="input-group">
                                 <input id="chatInputField" type="text" class="form-control" placeholder="Write a message " >
-                                <button onclick="sendMsg()" class="sendTextBtn"><i class="sendTextIcon fas fa-paper-plane"></i></button>
+                                <button onclick="sendMsg()" id="submitBtn" class="sendTextBtn"><i class="sendTextIcon fas fa-paper-plane"></i></button>
                             </div>
                         </div>
                     </div>
@@ -83,8 +83,10 @@
 
         function sendMsg() {
             let inputMsg = document.getElementById("chatInputField").value;
-            socket.emit("msgSendServer",inputMsg);
-            document.getElementById("chatInputField").value = "";
+            if (inputMsg.length > 0){
+                socket.emit("msgSendServer",inputMsg);
+                document.getElementById("chatInputField").value = "";
+            }
         }
 
         socket.on("magTransfer",function (chatMsg) {
