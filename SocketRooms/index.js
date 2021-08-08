@@ -13,12 +13,14 @@ io.on( "connection", function (socket) {
     console.log("New User Connected")
 
     socket.join("group1");
-    io.sockets.in("group1").emit("g1Event1","I'm From Group 1 Using Event 1");
-    io.sockets.in("group1").emit("g1Event2","I'm From Group 1 Using Event 2");
+    let totalJoinedMemberG1 = io.sockets.adapter.rooms.get("group1").size;
+    io.sockets.in("group1").emit("g1Event1","I'm From Group 1 Using Event 1. & Total Joiend: "+totalJoinedMemberG1);
+    io.sockets.in("group1").emit("g1Event2","I'm From Group 1 Using Event 2 "+totalJoinedMemberG1);
 
     socket.join("group2");
-    io.sockets.in("group2").emit("g2Event1","I'm From Group 2 Using Event 1");
-    io.sockets.in("group2").emit("g2Event2","I'm From Group 2 Using Event 2");
+    let totalJoinedMemberG2 = io.sockets.adapter.rooms.get("group2").size;
+    io.sockets.in("group2").emit("g2Event1","I'm From Group 2 Using Event 1 & Total Joiend: = "+totalJoinedMemberG2);
+    io.sockets.in("group2").emit("g2Event2","I'm From Group 2 Using Event 2 & Total Joiend: = "+totalJoinedMemberG2);
 
     socket.on("disconnect", function (){
         console.log("User Disconnected")
