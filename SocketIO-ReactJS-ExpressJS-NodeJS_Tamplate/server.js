@@ -7,6 +7,11 @@ const {Server} = require('socket.io');
 const io = new Server(expressJsServer);
 
 
+app.get('/expressServer',function (req, res) {
+    res.end("This is our Express JS Server");
+})
+
+
 io.on("connection", function (socket) {
     console.log("New User Connect");
 
