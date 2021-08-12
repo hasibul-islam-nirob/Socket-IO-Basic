@@ -6,6 +6,14 @@ const expressJsServer = http.createServer(app);
 const {Server} = require('socket.io');
 const io = new Server(expressJsServer);
 
+const path = require('path');
+app.use(expressJS.static('client/build'));
+// Resolved Path
+app.get('*',function (request, response) {
+    response.sendFile(path.resolve(__dirname,'client','build','index.html'));
+})
+
+
 
 app.get('/expressServer',function (req, res) {
     res.end("This is our Express JS Server");
